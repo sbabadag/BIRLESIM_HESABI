@@ -1,5 +1,6 @@
 #pragma once
 #include "OpenGL.h"
+#include "my_OGL_functions.h"
 
 
 namespace BIRLESIMHESABI {
@@ -19,13 +20,18 @@ namespace BIRLESIMHESABI {
 	{
 	public:
 		OpenGLForm::COpenGL ^ OpenGL;
+		TGroup *Group;
 		MyForm(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: Oluþturucu kodunu buraya ekle
 			//
+			
 			OpenGL = gcnew COpenGL(this, 480, 640);
+			Group = new TGroup();
+			Group->addObject(new TLine(new TPoint(0, 0, 0), new TPoint(100, 100, 0)));
+			
 		}
 
 	protected:
@@ -64,6 +70,7 @@ namespace BIRLESIMHESABI {
 			this->ClientSize = System::Drawing::Size(830, 584);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::MyForm_Paint);
 			this->ResumeLayout(false);
 
@@ -73,8 +80,14 @@ namespace BIRLESIMHESABI {
 		UNREFERENCED_PARAMETER(sender);
 		UNREFERENCED_PARAMETER(e);
 		//
+		
+
 		OpenGL->Render();
+		Group->draw();
+
 		OpenGL->SwapOpenGLBuffers();
+	}
+	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 	};
 }

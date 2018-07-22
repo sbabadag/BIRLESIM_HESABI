@@ -18,6 +18,9 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
+    <ClCompile Include="my_OGL_functions.cpp">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -26,5 +29,13 @@
     <ClInclude Include="OpenGL.h">
       <Filter>Üst Bilgi Dosyaları</Filter>
     </ClInclude>
+    <ClInclude Include="my_OGL_functions.h">
+      <Filter>Üst Bilgi Dosyaları</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <Filter>Kaynak Dosyaları</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
